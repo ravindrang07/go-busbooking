@@ -1,0 +1,10 @@
+.bus-listings-filter {
+  position: static;
+}
+
+@media (min-width: 64rem) {
+  .bus-listings-filter {
+    position: sticky;
+    top: 6rem;
+  }
+}

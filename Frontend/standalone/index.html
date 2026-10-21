@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GoBus - Book Intercity Bus Tickets Online</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar (Strict 3-zone Top Bar Contract) -->
+  <header class="gobus-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-wordmark">
+        <span>GoBus</span>
+        <span class="brand-badge">Official</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="search-results.html">Find Buses</a>
+        <a href="user-dashboard.html">My Bookings</a>
+        <a href="#about">About GoBus</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Passenger login only: No operator or admin links shown here! -->
+        <a href="login.html" class="btn btn-outline btn-sm">Passenger Login</a>
+        <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-tag">India's Trusted Intercity Transit Network</span>
+        <h1 class="hero-title">Book Safe, Comfortable Bus Journeys in Minutes</h1>
+        <p class="hero-subtitle">Travel with official Government State Road Transport corporations and premier luxury private sleeper operators with guaranteed seats and live tracking.</p>
+      </div>
+
+      <!-- Search Bus Card -->
+      <div class="search-widget-card">
+        <form id="searchBusForm" action="search-results.html" method="GET">
+          <div class="search-grid">
+            <div class="input-field-group">
+              <label for="sourceCity">From Station</label>
+              <input type="text" id="sourceCity" name="source" class="input-control" placeholder="e.g. Bengaluru, Mumbai" value="Bengaluru" required>
+            </div>
+            <div class="input-field-group">
+              <label for="destCity">To Destination</label>
+              <input type="text" id="destCity" name="destination" class="input-control" placeholder="e.g. Mysuru, Pune" value="Mysuru" required>
+            </div>
+            <div class="input-field-group">
+              <label for="travelDate">Date of Journey</label>
+              <input type="date" id="travelDate" name="date" class="input-control" required>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-primary" style="width: 100%; height: 48px;">Search Buses</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trusted Fleet Network -->
+  <section class="features-section" id="about">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">Government & Premier Fleet Partners</h2>
+        <p class="section-desc">Experience seamless travel backed by state transport undertakings and certified private carriers.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+          </div>
+          <h3>State Transport Corporations</h3>
+          <p>Official partner for KSRTC Airavat, MSRTC Shivneri, and interstate government RTC express coaches with fixed fares and punctual schedules.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>
+          </div>
+          <h3>Luxury Sleeper Berths</h3>
+          <p>Multi-Axle Volvo B11R and Scania sleeper coaches with full-flat ergonomic berths, individual charging ports, and clean linens.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h3>Guaranteed Seat Allocation</h3>
+          <p>Direct live inventory synchronization guarantees your chosen seat without double-bookings or surprise reassignment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Public Footer -->
+  <footer class="gobus-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4 style="color: #60a5fa;">GoBus Intercity Transport</h4>
+          <p style="font-size: 14px; line-height: 1.6; margin-top: 8px;">GoBus connects passengers with certified state transport undertakings and private fleet operators for safe, comfortable, and affordable travel.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Passenger Services</h4>
+          <ul class="footer-links">
+            <li><a href="search-results.html">Search Routes</a></li>
+            <li><a href="user-dashboard.html">View Ticket Status</a></li>
+            <li><a href="user-dashboard.html">Cancel Booking</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Top Routes</h4>
+          <ul class="footer-links">
+            <li><a href="search-results.html">Bengaluru → Mysuru</a></li>
+            <li><a href="search-results.html">Mumbai → Pune</a></li>
+            <li><a href="search-results.html">Bengaluru → Hyderabad</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Portals</h4>
+          <ul class="footer-links">
+            <li><a href="login.html">Passenger Login</a></li>
+            <!-- Note: Operator and Admin login links are separate as instructed -->
+            <li><a href="operator-login.html" style="color: #64748b; font-size: 12px;">Bus Operator Portal</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 GoBus Transport Systems Inc. All rights reserved.</span>
+        <span>College Project Frontend Prototype • Ready for Java/MySQL Backend</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Set default date to today
+    document.getElementById('travelDate').value = new Date().toISOString().split('T')[0];
+  </script>
+</body>
+</html>

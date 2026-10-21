@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Trip Schedules - GoBus Operator</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <header class="gobus-header" style="background: #0f172a; border-color: #1e293b;">
+    <div class="container header-container">
+      <a href="operator-dashboard.html" class="brand-wordmark" style="color: #60a5fa;">
+        <span>GoBus</span>
+        <span class="brand-badge" style="background: #1e3a8a; color: #93c5fd;">Operator Portal</span>
+      </a>
+      <div class="header-actions">
+        <a href="operator-login.html" class="btn btn-outline btn-sm" style="background: #1e293b; color: #ffffff; border-color: #475569;">Sign Out</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="dashboard-layout">
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-operator-info">
+        <div class="operator-title">KSRTC Airavat & Club Class</div>
+        <span class="operator-badge operator-badge-govt">Government State STU</span>
+      </div>
+      <ul class="sidebar-nav">
+        <li><a href="operator-dashboard.html">📊 Overview</a></li>
+        <li><a href="buses.html">🚌 Fleet & Buses</a></li>
+        <li><a href="routes.html">🛣️ Transit Routes</a></li>
+        <li><a href="schedules.html" class="active">⏱️ Trip Schedules</a></li>
+        <li><a href="bookings.html">🎟️ Booking Manifests</a></li>
+      </ul>
+    </aside>
+
+    <main class="dashboard-content">
+      <div class="dash-header">
+        <div class="dash-title">
+          <h1>Schedules & Dynamic Fares</h1>
+          <p>Assign coaches to routes, set departure & arrival timings, and configure seasonal ticket pricing.</p>
+        </div>
+        <button onclick="alert('Demo: Opening Trip Dispatch Scheduler.');" class="btn btn-primary btn-sm">+ Dispatch New Schedule</button>
+      </div>
+
+      <div class="table-card">
+        <div class="table-header-bar">
+          <h3 class="table-title">Active Daily Schedules</h3>
+        </div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Schedule ID</th>
+              <th>Assigned Bus</th>
+              <th>Route</th>
+              <th>Timings</th>
+              <th>Base Fare</th>
+              <th>Frequency</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="tabular font-bold">SCH-01</td>
+              <td>Airavat Volvo (KA-01-F-4557)</td>
+              <td>Bengaluru → Mysuru</td>
+              <td><strong>06:30 AM → 09:45 AM</strong></td>
+              <td class="tabular font-bold">₹380</td>
+              <td>Daily (All 7 Days)</td>
+              <td><span class="status-pill status-active">DISPATCHED</span></td>
+              <td><button onclick="alert('Demo: Edit fare & schedule.');" class="btn btn-outline btn-sm" style="padding: 4px 8px; font-size: 12px;">Edit Fare</button></td>
+            </tr>
+            <tr>
+              <td class="tabular font-bold">SCH-05</td>
+              <td>Ambaari Sleeper (KA-01-F-7712)</td>
+              <td>Bengaluru → Hyderabad</td>
+              <td><strong>10:15 PM → 07:00 AM</strong></td>
+              <td class="tabular font-bold">₹1,250</td>
+              <td>Daily (All 7 Days)</td>
+              <td><span class="status-pill status-active">DISPATCHED</span></td>
+              <td><button onclick="alert('Demo: Edit fare & schedule.');" class="btn btn-outline btn-sm" style="padding: 4px 8px; font-size: 12px;">Edit Fare</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

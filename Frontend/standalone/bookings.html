@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Passenger Manifests & Bookings - GoBus Operator</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <header class="gobus-header" style="background: #0f172a; border-color: #1e293b;">
+    <div class="container header-container">
+      <a href="operator-dashboard.html" class="brand-wordmark" style="color: #60a5fa;">
+        <span>GoBus</span>
+        <span class="brand-badge" style="background: #1e3a8a; color: #93c5fd;">Operator Portal</span>
+      </a>
+      <div class="header-actions">
+        <a href="operator-login.html" class="btn btn-outline btn-sm" style="background: #1e293b; color: #ffffff; border-color: #475569;">Sign Out</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="dashboard-layout">
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-operator-info">
+        <div class="operator-title">KSRTC Airavat & Club Class</div>
+        <span class="operator-badge operator-badge-govt">Government State STU</span>
+      </div>
+      <ul class="sidebar-nav">
+        <li><a href="operator-dashboard.html">📊 Overview</a></li>
+        <li><a href="buses.html">🚌 Fleet & Buses</a></li>
+        <li><a href="routes.html">🛣️ Transit Routes</a></li>
+        <li><a href="schedules.html">⏱️ Trip Schedules</a></li>
+        <li><a href="bookings.html" class="active">🎟️ Booking Manifests</a></li>
+      </ul>
+    </aside>
+
+    <main class="dashboard-content">
+      <div class="dash-header">
+        <div class="dash-title">
+          <h1>Passenger Manifests & Seat Load</h1>
+          <p>Inspect confirmed passengers, allocated seat numbers, and boarding checkpoints.</p>
+        </div>
+        <button onclick="window.print()" class="btn btn-outline btn-sm">🖨️ Export Manifest PDF</button>
+      </div>
+
+      <div class="table-card">
+        <div class="table-header-bar">
+          <h3 class="table-title">Trip Passenger Manifest (SCH-01 • Bengaluru → Mysuru)</h3>
+          <input type="text" id="tableSearchInput" placeholder="Search passenger name or PNR..." style="padding: 6px 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; outline: none;">
+        </div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Seat No.</th>
+              <th>Passenger Name</th>
+              <th>Age / Gender</th>
+              <th>Contact Phone</th>
+              <th>Boarding Point</th>
+              <th>PNR</th>
+              <th>Verification</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="tabular font-bold" style="color: var(--royal-blue);">L12</td>
+              <td><strong>Rahul Sharma</strong></td>
+              <td>28 / Male</td>
+              <td class="tabular">+91 98765 43210</td>
+              <td>Majestic Platform 14</td>
+              <td class="tabular">GB-842910</td>
+              <td><span class="status-pill status-confirmed">CHECKED IN</span></td>
+            </tr>
+            <tr>
+              <td class="tabular font-bold" style="color: var(--royal-blue);">L13</td>
+              <td><strong>Ananya Verma</strong></td>
+              <td>26 / Female</td>
+              <td class="tabular">+91 98111 22334</td>
+              <td>Majestic Platform 14</td>
+              <td class="tabular">GB-842910</td>
+              <td><span class="status-pill status-confirmed">CHECKED IN</span></td>
+            </tr>
+            <tr>
+              <td class="tabular font-bold" style="color: var(--royal-blue);">L03</td>
+              <td><strong>Karthik R.</strong></td>
+              <td>34 / Male</td>
+              <td class="tabular">+91 99160 55421</td>
+              <td>Shantinagar Gate 2</td>
+              <td class="tabular">GB-554210</td>
+              <td><span class="status-pill status-active">PENDING BOARDING</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

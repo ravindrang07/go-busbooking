@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Passenger Registration - GoBus</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body style="background: #f1f5f9;">
+
+  <header class="gobus-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-wordmark">
+        <span>GoBus</span>
+      </a>
+      <div class="header-actions">
+        <a href="index.html" class="btn btn-outline btn-sm">Back to Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="auth-wrapper">
+    <div class="auth-card" style="max-width: 480px;">
+      <div class="auth-header">
+        <span class="auth-badge auth-badge-passenger">New Passenger</span>
+        <h1>Create Your Account</h1>
+        <p>Register as a passenger for instant ticket booking and tracking.</p>
+      </div>
+
+      <form id="passengerRegisterForm" class="auth-form" action="user-dashboard.html" method="GET">
+        <div class="form-group">
+          <label for="regName">Full Legal Name</label>
+          <input type="text" id="regName" name="name" class="form-control" placeholder="e.g. Rahul Sharma" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="regEmail">Email Address</label>
+            <input type="email" id="regEmail" name="email" class="form-control" placeholder="name@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="regPhone">Mobile Number</label>
+            <input type="tel" id="regPhone" name="phone" class="form-control" placeholder="+91 98765 43210" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="regPass">Create Password</label>
+            <input type="password" id="regPass" name="password" class="form-control" placeholder="Min. 8 characters" required>
+          </div>
+          <div class="form-group">
+            <label for="regGender">Gender</label>
+            <select id="regGender" name="gender" class="form-control">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-extra">
+          <label class="checkbox-label">
+            <input type="checkbox" required checked>
+            <span>I agree to GoBus Terms & Privacy Policy</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; height: 44px;">Complete Registration</button>
+      </form>
+
+      <div class="auth-footer">
+        Already registered? <a href="login.html">Sign in here</a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

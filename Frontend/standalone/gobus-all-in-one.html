@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GoBus - All-In-One Bus Booking & Transport Management</title>
+  <style>
+    /* GoBus Embedded Single-File Prototype Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+    :root {
+      --primary-navy: #0f172a;
+      --royal-blue: #1d4ed8;
+      --royal-blue-hover: #1e40af;
+      --accent-blue: #3b82f6;
+      --light-bg: #f8fafc;
+      --card-bg: #ffffff;
+      --border-subtle: #e2e8f0;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --success-emerald: #10b981;
+      --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--font-sans); background: var(--light-bg); color: var(--text-main); line-height: 1.5; }
+    a { color: inherit; text-decoration: none; }
+    .tabular { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
+
+    /* Demo Quick Switcher Top Bar */
+    .demo-bar {
+      background: #020617;
+      color: #94a3b8;
+      font-size: 12px;
+      padding: 8px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #1e293b;
+    }
+    .demo-bar a { color: #60a5fa; margin-left: 8px; font-weight: 600; }
+    .demo-bar a:hover { text-decoration: underline; }
+
+    /* Header */
+    .gobus-header { background: #ffffff; border-bottom: 1px solid var(--border-subtle); position: sticky; top: 0; z-index: 50; }
+    .header-container { display: flex; align-items: center; justify-content: space-between; height: 70px; }
+    .brand-wordmark { font-size: 22px; font-weight: 800; color: var(--royal-blue); }
+    .nav-links { display: flex; gap: 24px; list-style: none; font-size: 14px; font-weight: 500; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 9px 16px; font-size: 14px; font-weight: 600; border-radius: 8px; cursor: pointer; border: 1px solid transparent; }
+    .btn-primary { background: var(--royal-blue); color: #fff; }
+    .btn-outline { border-color: var(--border-subtle); background: #fff; color: #1e293b; }
+
+    /* Hero */
+    .hero-section { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: #fff; padding: 60px 0 80px; }
+    .hero-title { font-size: clamp(30px, 4vw, 44px); font-weight: 800; margin-bottom: 12px; }
+    .search-card { background: #fff; border-radius: 16px; padding: 24px; color: #0f172a; margin-top: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+    .search-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 140px; gap: 16px; align-items: flex-end; }
+    .input-group { display: flex; flex-direction: column; gap: 6px; }
+    .input-group label { font-size: 12px; font-weight: 600; color: #64748b; text-transform: uppercase; }
+    .input-control { height: 46px; padding: 0 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; }
+
+    /* Cards */
+    .bus-card { background: #fff; border: 1px solid var(--border-subtle); border-radius: 14px; padding: 20px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+    .operator-badge { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 4px; }
+    .badge-govt { background: #dcfce7; color: #15803d; }
+    .badge-pvt { background: #e0e7ff; color: #4338ca; }
+
+    /* Seat Map */
+    .seat-item { width: 42px; height: 42px; border-radius: 6px; border: 1.5px solid #cbd5e1; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; cursor: pointer; margin: 4px; }
+    .seat-available:hover { border-color: var(--royal-blue); background: #eff6ff; }
+    .seat-selected { background: var(--royal-blue) !important; color: #fff !important; }
+    .seat-booked { background: #f1f5f9; color: #94a3b8; cursor: not-allowed; }
+
+    @media (max-width: 768px) {
+      .search-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Demo Quick Navigation Ribbon -->
+  <div class="demo-bar">
+    <span>💡 <strong>GoBus Project Switcher:</strong> Switch views to inspect each portal:</span>
+    <div>
+      <a href="index.html">Passenger Site</a>
+      <a href="login.html">Passenger Login</a>
+      <a href="user-dashboard.html">Passenger Dashboard</a>
+      <a href="operator-login.html">Operator Login</a>
+      <a href="operator-dashboard.html">Operator Dashboard</a>
+      <a href="admin-login.html">Admin Login</a>
+      <a href="admin-dashboard.html">Admin Dashboard</a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="gobus-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-wordmark">GoBus</a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="search-results.html">Find Buses</a>
+        <a href="user-dashboard.html">My Bookings</a>
+      </nav>
+      <div>
+        <a href="login.html" class="btn btn-outline" style="padding: 7px 14px; font-size: 13px;">Passenger Login</a>
+        <a href="register.html" class="btn btn-primary" style="padding: 7px 14px; font-size: 13px; margin-left: 8px;">Register</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <h1 class="hero-title">Book Intercity Government & Private Luxury Buses</h1>
+      <p style="color: #cbd5e1; max-width: 600px;">Direct seat reservation on official KSRTC, MSRTC, and certified private Volvo/Scania sleeper coaches.</p>
+
+      <div class="search-card">
+        <div class="search-grid">
+          <div class="input-group">
+            <label>From</label>
+            <input type="text" class="input-control" value="Bengaluru">
+          </div>
+          <div class="input-group">
+            <label>To</label>
+            <input type="text" class="input-control" value="Mysuru">
+          </div>
+          <div class="input-group">
+            <label>Travel Date</label>
+            <input type="date" class="input-control" value="2026-10-24">
+          </div>
+          <div>
+            <a href="search-results.html" class="btn btn-primary" style="width: 100%; height: 46px;">Search Buses</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <main class="container" style="padding: 48px 20px;">
+    <h2 style="font-size: 22px; font-weight: 800; margin-bottom: 24px;">Featured Scheduled Coaches</h2>
+    
+    <!-- Bus Card 1 -->
+    <div class="bus-card">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+        <div>
+          <span class="operator-badge badge-govt">Government STU</span>
+          <h3 style="font-size: 18px; font-weight: 700; margin-top: 4px;">Airavat Club Class (Multi-Axle Volvo)</h3>
+          <p style="font-size: 13px; color: #64748b;">KSRTC • KA-01-F-4557 • ★ 4.8 (842 reviews)</p>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-size: 22px; font-weight: 800; color: var(--royal-blue);" class="tabular">₹380</div>
+          <span style="font-size: 12px; color: #64748b;">per seat</span>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px; border-top: 1px solid #f1f5f9; padding-top: 14px;">
+        <span style="font-size: 13px; color: #059669; font-weight: 600;">28 Seats Available</span>
+        <a href="seat-selection.html" class="btn btn-primary" style="padding: 6px 14px; font-size: 13px;">Select Seats</a>
+      </div>
+    </div>
+
+    <!-- Bus Card 2 -->
+    <div class="bus-card">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+        <div>
+          <span class="operator-badge badge-pvt">Private Luxury Fleet</span>
+          <h3 style="font-size: 18px; font-weight: 700; margin-top: 4px;">Royal Star Grand AC Sleeper (2+1)</h3>
+          <p style="font-size: 13px; color: #64748b;">Royal Star Travels • KA-04-AK-9102 • ★ 4.9 (1,240 reviews)</p>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-size: 22px; font-weight: 800; color: var(--royal-blue);" class="tabular">₹650</div>
+          <span style="font-size: 12px; color: #64748b;">per sleeper berth</span>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px; border-top: 1px solid #f1f5f9; padding-top: 14px;">
+        <span style="font-size: 13px; color: #059669; font-weight: 600;">14 Berths Available</span>
+        <a href="seat-selection.html" class="btn btn-primary" style="padding: 6px 14px; font-size: 13px;">Select Seats</a>
+      </div>
+    </div>
+  </main>
+
+  <footer style="background: #0f172a; color: #94a3b8; padding: 36px 0; font-size: 13px; text-align: center;">
+    <div class="container">
+      <p>&copy; 2026 GoBus Transport Systems. College Project Frontend Prototype.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

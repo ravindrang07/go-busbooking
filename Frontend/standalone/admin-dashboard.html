@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Platform Admin Governance Dashboard - GoBus</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <header class="gobus-header" style="background: #090d16; border-color: #1e293b;">
+    <div class="container header-container">
+      <div class="brand-wordmark" style="color: #f87171;">
+        <span>GoBus Admin</span>
+        <span class="brand-badge" style="background: #7f1d1d; color: #fecaca;">Platform Root</span>
+      </div>
+      <div class="header-actions">
+        <span style="color: #94a3b8; font-size: 13px;">Super Admin: admin@gobus.gov.in</span>
+        <a href="admin-login.html" class="btn btn-outline btn-sm" style="background: #1e293b; color: #fecaca; border-color: #7f1d1d;">Exit Console</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar" style="background: #020617; border-color: #1e293b;">
+      <div class="sidebar-operator-info" style="border-color: #1e293b;">
+        <div class="operator-title" style="color: #fca5a5;">Central Governance Unit</div>
+        <span class="operator-badge operator-badge-admin">Platform Super Admin</span>
+      </div>
+
+      <ul class="sidebar-nav">
+        <li><a href="admin-dashboard.html" class="active" style="background: #dc2626;">📊 System Analytics</a></li>
+        <li><a href="operators.html">🏢 Operator Verification</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-content">
+      <div class="dash-header">
+        <div class="dash-title">
+          <h1>Platform Overview & Operator Audit</h1>
+          <p>System-wide booking volumes, revenue settlements, and transit compliance metrics.</p>
+        </div>
+        <a href="operators.html" class="btn btn-primary btn-sm" style="background: #dc2626; border-color: #ef4444;">Review 1 Pending Operator</a>
+      </div>
+
+      <!-- Platform-Wide KPIs -->
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-label">Active Operators</div>
+          <div class="metric-value tabular">4 Operators</div>
+          <div class="metric-sub" style="color: #3b82f6;">2 Govt STUs • 2 Private Fleets</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Total Registered Fleet</div>
+          <div class="metric-value tabular">146 Buses</div>
+          <div class="metric-sub">Across 51 interstate corridors</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Platform Bookings (MTD)</div>
+          <div class="metric-value tabular">18,420</div>
+          <div class="metric-sub">98.4% confirmation rate</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Gross Platform Volume</div>
+          <div class="metric-value tabular">₹1,42,80,000</div>
+          <div class="metric-sub">Net platform fee: ₹7,14,000</div>
+        </div>
+      </div>
+
+      <!-- Government vs. Private Operator Comparison Breakdown -->
+      <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 32px; box-shadow: var(--shadow-sm);">
+        <h3 style="font-size: 16px; font-weight: 700; color: #0f172a; margin-bottom: 16px;">Government STU vs. Private Fleet Performance Analytics</h3>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+          <!-- Govt STU Card -->
+          <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; padding: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span class="operator-badge operator-badge-govt">Government Undertakings (KSRTC / MSRTC)</span>
+              <span style="font-size: 13px; font-weight: 700; color: #15803d;">58% Market Share</span>
+            </div>
+            <div style="font-size: 24px; font-weight: 800; color: #14532d;" class="tabular">₹82,50,000 Volume</div>
+            <p style="font-size: 13px; color: #166534; margin-top: 6px;">84 Buses in Active Circulation • 99.2% Punctuality Index</p>
+          </div>
+
+          <!-- Private Fleet Card -->
+          <div style="background: #eef2ff; border: 1px solid #c7d2fe; border-radius: 12px; padding: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span class="operator-badge operator-badge-pvt">Private Luxury Carriers (Royal Star / Zingbus)</span>
+              <span style="font-size: 13px; font-weight: 700; color: #4338ca;">42% Market Share</span>
+            </div>
+            <div style="font-size: 24px; font-weight: 800; color: #1e1b4b;" class="tabular">₹60,30,000 Volume</div>
+            <p style="font-size: 13px; color: #3730a3; margin-top: 6px;">62 Buses in Active Circulation • 4.8★ Average Customer Rating</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Operator Governance Table -->
+      <div class="table-card">
+        <div class="table-header-bar">
+          <h3 class="table-title">Operator License Audit & Compliance</h3>
+          <a href="operators.html" class="btn btn-outline btn-sm">Manage All Operators →</a>
+        </div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Operator Name</th>
+              <th>Category</th>
+              <th>Permit License</th>
+              <th>Fleet Count</th>
+              <th>Monthly Volume</th>
+              <th>Safety Rating</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>KSRTC (Airavat & Club Class)</strong></td>
+              <td><span class="operator-badge operator-badge-govt">Government STU</span></td>
+              <td class="tabular">STU-KA-1997-8821</td>
+              <td class="tabular">48</td>
+              <td class="tabular">₹12,45,000</td>
+              <td>★ 4.8</td>
+              <td><span class="status-pill status-active">VERIFIED & ACTIVE</span></td>
+            </tr>
+            <tr>
+              <td><strong>Royal Star Luxury Travels</strong></td>
+              <td><span class="operator-badge operator-badge-pvt">Private Carrier</span></td>
+              <td class="tabular">PVT-EXP-2015-9921</td>
+              <td class="tabular">28</td>
+              <td class="tabular">₹16,80,000</td>
+              <td>★ 4.9</td>
+              <td><span class="status-pill status-active">VERIFIED & ACTIVE</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

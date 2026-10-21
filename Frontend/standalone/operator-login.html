@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bus Operator Portal Login - GoBus</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body style="background: #0f172a;">
+
+  <header class="gobus-header" style="background: #1e293b; border-color: #334155;">
+    <div class="container header-container">
+      <a href="index.html" class="brand-wordmark" style="color: #60a5fa;">
+        <span>GoBus</span>
+        <span class="brand-badge" style="background: #1e3a8a; color: #93c5fd;">Operator Network</span>
+      </a>
+      <div class="header-actions">
+        <a href="index.html" class="btn btn-outline btn-sm" style="background: #0f172a; color: #ffffff; border-color: #475569;">Public Site</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="auth-wrapper" style="background: #0f172a;">
+    <div class="auth-card" style="border-color: #334155;">
+      <div class="auth-header">
+        <span class="auth-badge auth-badge-operator">Authorized Fleet Portal</span>
+        <h1>Operator Sign In</h1>
+        <p>Access fleet telemetry, route schedules, manifests, and revenue settlements.</p>
+      </div>
+
+      <!-- Single login form for all operators. Operator type is determined by backend credentials! -->
+      <form id="operatorLoginForm" class="auth-form" action="operator-dashboard.html" method="GET">
+        <div class="form-group">
+          <label for="operatorEmail">Registered Corporate Email / License ID</label>
+          <input type="text" id="operatorEmail" name="email" class="form-control" placeholder="dispatch@operator.com" value="operations@ksrtc.gov.in" required>
+        </div>
+
+        <div class="form-group">
+          <label for="operatorPassword">Security Password</label>
+          <input type="password" id="operatorPassword" name="password" class="form-control" placeholder="••••••••" value="operatorPass123" required>
+        </div>
+
+        <div class="form-extra">
+          <label class="checkbox-label">
+            <input type="checkbox" checked>
+            <span>Keep session active</span>
+          </label>
+          <a href="#" class="forgot-link" onclick="alert('Contact GoBus Platform Admin to reset operator credentials.'); return false;">Help Desk</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; height: 44px; margin-top: 6px;">
+          Authenticate to Dashboard
+        </button>
+      </form>
+
+      <!-- Preloaded Demo Operator Accounts -->
+      <div class="demo-credentials-box" style="background: #f8fafc;">
+        <strong>Quick Demo Operator Accounts:</strong><br>
+        <div style="margin-top: 6px; font-size: 11px;">
+          <strong>1. Government STU (KSRTC):</strong><br>
+          Email: <code>operations@ksrtc.gov.in</code> (Badge: Government STU)<br>
+          <button type="button" class="demo-quick-btn" onclick="document.getElementById('operatorEmail').value='operations@ksrtc.gov.in';">Select KSRTC Demo</button>
+        </div>
+        <div style="margin-top: 8px; font-size: 11px;">
+          <strong>2. Private Fleet (Royal Star):</strong><br>
+          Email: <code>dispatch@royalstartravels.com</code> (Badge: Private Luxury Fleet)<br>
+          <button type="button" class="demo-quick-btn" onclick="document.getElementById('operatorEmail').value='dispatch@royalstartravels.com';">Select Royal Star Demo</button>
+        </div>
+      </div>
+
+      <div class="auth-footer" style="font-size: 12px; color: #64748b;">
+        Protected by GoBus Transport Authority Access Control Policy.
+      </div>
+    </div>
+  </main>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

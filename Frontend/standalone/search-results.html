@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Available Buses - GoBus</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .search-summary-bar {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 16px 0;
+    }
+    .results-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 28px;
+      padding: 32px 0;
+    }
+    .filter-panel {
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      height: fit-content;
+    }
+    .filter-group {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .filter-group:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .filter-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 12px;
+    }
+    .filter-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: #475569;
+      margin-bottom: 8px;
+      cursor: pointer;
+    }
+    .bus-card {
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s;
+    }
+    .bus-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: #cbd5e1;
+    }
+    .bus-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 18px;
+    }
+    .bus-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .bus-operator-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .trip-timeline {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 20px;
+      padding: 16px 0;
+      border-top: 1px solid #f1f5f9;
+      border-bottom: 1px solid #f1f5f9;
+      margin-bottom: 18px;
+    }
+    .time-slot {
+      font-size: 20px;
+      font-weight: 800;
+      color: #0f172a;
+    }
+    .place-slot {
+      font-size: 13px;
+      color: #64748b;
+      margin-top: 2px;
+    }
+    .duration-indicator {
+      text-align: center;
+      font-size: 12px;
+      color: #64748b;
+    }
+    .duration-line {
+      width: 100px;
+      height: 2px;
+      background: #cbd5e1;
+      margin: 4px auto;
+      position: relative;
+    }
+    .bus-card-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .bus-fare {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--royal-blue);
+    }
+    .seat-count {
+      font-size: 13px;
+      color: #059669;
+      font-weight: 600;
+    }
+    @media (max-width: 900px) {
+      .results-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="gobus-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-wordmark">
+        <span>GoBus</span>
+      </a>
+      <div class="header-actions">
+        <a href="login.html" class="btn btn-outline btn-sm">Passenger Login</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Route Search Bar -->
+  <div class="search-summary-bar">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+      <div>
+        <h2 style="font-size: 18px; font-weight: 800; color: #0f172a;">Bengaluru → Mysuru</h2>
+        <span style="font-size: 13px; color: #64748b;">Showing 4 buses available for selected date</span>
+      </div>
+      <div>
+        <a href="index.html" class="btn btn-outline btn-sm">Modify Search</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="results-layout">
+      <!-- Filter Sidebar -->
+      <aside class="filter-panel">
+        <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #0f172a;">Filter Buses</h3>
+        
+        <div class="filter-group">
+          <div class="filter-title">Operator Category</div>
+          <label class="filter-option"><input type="checkbox" checked> Government State RTC (KSRTC/MSRTC)</label>
+          <label class="filter-option"><input type="checkbox" checked> Private Luxury Fleet</label>
+        </div>
+
+        <div class="filter-group">
+          <div class="filter-title">Bus Class</div>
+          <label class="filter-option"><input type="checkbox" checked> AC Sleeper (2+1)</label>
+          <label class="filter-option"><input type="checkbox" checked> Volvo Multi-Axle</label>
+          <label class="filter-option"><input type="checkbox"> Express Non-AC</label>
+        </div>
+
+        <div class="filter-group">
+          <div class="filter-title">Departure Time</div>
+          <label class="filter-option"><input type="checkbox" checked> Morning (06:00 - 12:00)</label>
+          <label class="filter-option"><input type="checkbox"> Afternoon (12:00 - 18:00)</label>
+          <label class="filter-option"><input type="checkbox"> Night (18:00 - 06:00)</label>
+        </div>
+      </aside>
+
+      <!-- Bus Listings -->
+      <div class="listings-container">
+
+        <!-- Bus Card 1 (Government STU) -->
+        <div class="bus-card">
+          <div class="bus-card-top">
+            <div>
+              <h3 class="bus-title">Airavat Club Class (Multi-Axle Volvo B11R)</h3>
+              <div class="bus-operator-row">
+                <span class="operator-badge operator-badge-govt">Government STU (KSRTC)</span>
+                <span style="font-size: 13px; color: #64748b;">Reg: KA-01-F-4557</span>
+                <span style="font-size: 13px; font-weight: 600; color: #f59e0b;">★ 4.8 (842)</span>
+              </div>
+            </div>
+            <div style="text-align: right;">
+              <div class="bus-fare tabular">₹380</div>
+              <span style="font-size: 12px; color: #64748b;">per seat</span>
+            </div>
+          </div>
+
+          <div class="trip-timeline">
+            <div>
+              <div class="time-slot tabular">06:30 AM</div>
+              <div class="place-slot">Bengaluru (Majestic Platform 14)</div>
+            </div>
+            <div class="duration-indicator">
+              <span>3h 15m</span>
+              <div class="duration-line"></div>
+              <span>Direct Highway</span>
+            </div>
+            <div style="text-align: right;">
+              <div class="time-slot tabular">09:45 AM</div>
+              <div class="place-slot">Mysuru (Central Bus Stand)</div>
+            </div>
+          </div>
+
+          <div class="bus-card-bottom">
+            <div>
+              <span class="seat-count">28 Seats Available</span>
+              <span style="font-size: 12px; color: #64748b; margin-left: 12px;">Air Suspension · USB Charging · Emergency Exit</span>
+            </div>
+            <a href="seat-selection.html?bus=bus-101" class="btn btn-primary btn-sm">Select Seats</a>
+          </div>
+        </div>
+
+        <!-- Bus Card 2 (Private Luxury Sleeper) -->
+        <div class="bus-card">
+          <div class="bus-card-top">
+            <div>
+              <h3 class="bus-title">Royal Star Grand AC Sleeper (2+1)</h3>
+              <div class="bus-operator-row">
+                <span class="operator-badge operator-badge-pvt">Private Luxury Fleet</span>
+                <span style="font-size: 13px; color: #64748b;">Reg: KA-04-AK-9102</span>
+                <span style="font-size: 13px; font-weight: 600; color: #f59e0b;">★ 4.9 (1,240)</span>
+              </div>
+            </div>
+            <div style="text-align: right;">
+              <div class="bus-fare tabular">₹650</div>
+              <span style="font-size: 12px; color: #64748b;">per sleeper berth</span>
+            </div>
+          </div>
+
+          <div class="trip-timeline">
+            <div>
+              <div class="time-slot tabular">08:00 AM</div>
+              <div class="place-slot">Bengaluru (Shantinagar Gate 2)</div>
+            </div>
+            <div class="duration-indicator">
+              <span>3h 15m</span>
+              <div class="duration-line"></div>
+              <span>Express Corridor</span>
+            </div>
+            <div style="text-align: right;">
+              <div class="time-slot tabular">11:15 AM</div>
+              <div class="place-slot">Mysuru (Columbia Asia Bypass)</div>
+            </div>
+          </div>
+
+          <div class="bus-card-bottom">
+            <div>
+              <span class="seat-count">14 Berths Available</span>
+              <span style="font-size: 12px; color: #64748b; margin-left: 12px;">Full Flat Bed · Pillow & Blanket · WiFi · CCTV</span>
+            </div>
+            <a href="seat-selection.html?bus=bus-103" class="btn btn-primary btn-sm">Select Seats</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

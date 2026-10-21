@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operator Approvals & Management - GoBus Admin</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <header class="gobus-header" style="background: #090d16; border-color: #1e293b;">
+    <div class="container header-container">
+      <div class="brand-wordmark" style="color: #f87171;">
+        <span>GoBus Admin</span>
+        <span class="brand-badge" style="background: #7f1d1d; color: #fecaca;">Platform Root</span>
+      </div>
+      <div class="header-actions">
+        <a href="admin-dashboard.html" class="btn btn-outline btn-sm" style="background: #1e293b; color: #ffffff; border-color: #334155;">Analytics</a>
+        <a href="admin-login.html" class="btn btn-outline btn-sm" style="background: #1e293b; color: #fecaca; border-color: #7f1d1d;">Exit Console</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="dashboard-layout">
+    <aside class="dashboard-sidebar" style="background: #020617; border-color: #1e293b;">
+      <div class="sidebar-operator-info" style="border-color: #1e293b;">
+        <div class="operator-title" style="color: #fca5a5;">Central Governance Unit</div>
+        <span class="operator-badge operator-badge-admin">Platform Super Admin</span>
+      </div>
+
+      <ul class="sidebar-nav">
+        <li><a href="admin-dashboard.html">📊 System Analytics</a></li>
+        <li><a href="operators.html" class="active" style="background: #dc2626;">🏢 Operator Verification</a></li>
+      </ul>
+    </aside>
+
+    <main class="dashboard-content">
+      <div class="dash-header">
+        <div class="dash-title">
+          <h1>Operator Licensing & Compliance</h1>
+          <p>Approve onboarding requests, audit transport licenses, and manage government vs. private permissions.</p>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <div class="table-header-bar">
+          <h3 class="table-title">All Onboarded Transport Operators</h3>
+          <input type="text" id="tableSearchInput" placeholder="Filter operators..." style="padding: 6px 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; outline: none;">
+        </div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Operator Organization</th>
+              <th>Platform Category</th>
+              <th>Transport License</th>
+              <th>Fleet Count</th>
+              <th>Contact Email</th>
+              <th>Status</th>
+              <th>Governance Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>KSRTC (Airavat & Club Class)</strong></td>
+              <td><span class="operator-badge operator-badge-govt">Government STU</span></td>
+              <td class="tabular">STU-KA-1997-8821</td>
+              <td class="tabular">48</td>
+              <td>operations@ksrtc.gov.in</td>
+              <td><span class="status-pill status-active">ACTIVE</span></td>
+              <td>
+                <button onclick="alert('Audited: Government STU compliant.');" class="btn btn-outline btn-sm" style="padding: 4px 8px; font-size: 12px;">Audit</button>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>MSRTC (Shivneri Premium)</strong></td>
+              <td><span class="operator-badge operator-badge-govt">Government STU</span></td>
+              <td class="tabular">STU-MH-2001-4490</td>
+              <td class="tabular">36</td>
+              <td>depot.pune@msrtc.gov.in</td>
+              <td><span class="status-pill status-active">ACTIVE</span></td>
+              <td>
+                <button onclick="alert('Audited: Government STU compliant.');" class="btn btn-outline btn-sm" style="padding: 4px 8px; font-size: 12px;">Audit</button>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Royal Star Luxury Travels</strong></td>
+              <td><span class="operator-badge operator-badge-pvt">Private Luxury</span></td>
+              <td class="tabular">PVT-EXP-2015-9921</td>
+              <td class="tabular">28</td>
+              <td>dispatch@royalstartravels.com</td>
+              <td><span class="status-pill status-active">ACTIVE</span></td>
+              <td>
+                <button onclick="if(confirm('Suspend operator account?')) alert('Operator suspended.');" class="btn btn-outline btn-sm" style="padding: 4px 8px; font-size: 12px; color: #ef4444;">Suspend</button>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Express Deccan Coaches</strong></td>
+              <td><span class="operator-badge operator-badge-pvt">Private Carrier</span></td>
+              <td class="tabular">PVT-EXP-2026-0041</td>
+              <td class="tabular">12</td>
+              <td>compliance@deccancoaches.com</td>
+              <td><span class="status-pill status-pending">PENDING VERIFICATION</span></td>
+              <td>
+                <button onclick="alert('Operator license verified. Account approved!'); window.location.reload();" class="btn btn-primary btn-sm" style="padding: 4px 8px; font-size: 12px; background: #059669; border-color: #059669;">Approve License</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

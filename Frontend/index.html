@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GoBus - Professional Bus Booking & Transport Management</title>
+    <meta name="description" content="Enterprise-grade bus booking portal featuring distinct Passenger, Fleet Operator, and Platform Admin experiences with interactive seat reservation, real-time manifests, and full source code inspection." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+  </head>
+  <body class="bg-slate-50 text-slate-900 font-sans antialiased min-h-screen selection:bg-blue-600 selection:text-white">
+    <div id="root"></div>
+    <script src="/js/runtime.js"></script>
+    <script src="/js/backend-api.js"></script>
+    <script src="/js/app.js"></script>
+    <script>
+      GoBusDOM.createRoot(document.getElementById('root')).render(React.createElement(__require('App').default));
+    </script>
+  </body>
+</html>

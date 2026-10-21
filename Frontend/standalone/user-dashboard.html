@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Passenger Dashboard - GoBus</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <header class="gobus-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-wordmark">
+        <span>GoBus</span>
+      </a>
+      <nav class="nav-links">
+        <a href="search-results.html">Book New Ticket</a>
+        <a href="user-dashboard.html" class="active">My Dashboard</a>
+      </nav>
+      <div class="header-actions">
+        <span style="font-size: 14px; font-weight: 600; color: #0f172a;">Rahul Sharma</span>
+        <a href="index.html" class="btn btn-outline btn-sm">Sign Out</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 32px; padding-bottom: 60px;">
+    <!-- Welcome Strip -->
+    <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 24px 32px; margin-bottom: 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+      <div>
+        <h1 style="font-size: 22px; font-weight: 800; color: #0f172a;">Passenger Dashboard</h1>
+        <p style="font-size: 14px; color: #64748b; margin-top: 4px;">Manage your bus reservations, e-tickets, and cancellation requests.</p>
+      </div>
+      <a href="search-results.html" class="btn btn-primary">+ Book Another Trip</a>
+    </div>
+
+    <!-- Active Booking Spotlight -->
+    <div style="margin-bottom: 36px;">
+      <h2 style="font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 16px;">Upcoming Journey</h2>
+      
+      <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-sm);">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+          <div>
+            <span class="status-pill status-confirmed">CONFIRMED TRIP</span>
+            <h3 style="font-size: 18px; font-weight: 800; color: #0f172a; margin-top: 8px;">Bengaluru → Mysuru</h3>
+            <p style="font-size: 13px; color: #64748b;">Airavat Club Class (KSRTC) • Departure: 06:30 AM • Sat, Oct 24, 2026</p>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-size: 12px; color: #64748b;">PNR Reference</div>
+            <div style="font-size: 16px; font-weight: 800; font-family: var(--font-mono); color: var(--royal-blue);">GB-842910</div>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 12px; justify-content: flex-end; border-top: 1px solid #f1f5f9; padding-top: 16px;">
+          <button onclick="if(confirm('Are you sure you want to cancel this booking? Refund will be initiated via original payment method.')) { alert('Booking GB-842910 Cancelled. Refund of ₹798 processed.'); window.location.reload(); }" class="btn btn-outline btn-sm" style="color: #ef4444; border-color: #fecaca;">Cancel Ticket</button>
+          <a href="ticket-details.html" class="btn btn-primary btn-sm">View Boarding Pass</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Booking History Table -->
+    <div class="table-card">
+      <div class="table-header-bar">
+        <h3 class="table-title">Past Bookings & Travel History</h3>
+      </div>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>PNR</th>
+            <th>Route</th>
+            <th>Travel Date</th>
+            <th>Bus Operator</th>
+            <th>Seats</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="tabular font-bold">GB-842910</td>
+            <td>Bengaluru → Mysuru</td>
+            <td>2026-10-24</td>
+            <td>KSRTC Airavat (Govt)</td>
+            <td>L12, L13</td>
+            <td class="tabular">₹798</td>
+            <td><span class="status-pill status-confirmed">CONFIRMED</span></td>
+            <td><a href="ticket-details.html" style="color: var(--royal-blue); font-weight: 600;">View Ticket</a></td>
+          </tr>
+          <tr>
+            <td class="tabular font-bold">GB-339104</td>
+            <td>Mumbai → Pune</td>
+            <td>2026-09-15</td>
+            <td>MSRTC Shivneri (Govt)</td>
+            <td>L04</td>
+            <td class="tabular">₹546</td>
+            <td><span class="status-pill status-active">COMPLETED</span></td>
+            <td><span style="color: #64748b; font-size: 12px;">Archived</span></td>
+          </tr>
+          <tr>
+            <td class="tabular font-bold">GB-112098</td>
+            <td>Bengaluru → Hyderabad</td>
+            <td>2026-08-10</td>
+            <td>Royal Star Sleeper (Pvt)</td>
+            <td>U02</td>
+            <td class="tabular">₹1,450</td>
+            <td><span class="status-pill status-cancelled">CANCELLED</span></td>
+            <td><span style="color: #64748b; font-size: 12px;">Refunded</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Transit Routes - GoBus Operator</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <header class="gobus-header" style="background: #0f172a; border-color: #1e293b;">
+    <div class="container header-container">
+      <a href="operator-dashboard.html" class="brand-wordmark" style="color: #60a5fa;">
+        <span>GoBus</span>
+        <span class="brand-badge" style="background: #1e3a8a; color: #93c5fd;">Operator Portal</span>
+      </a>
+      <div class="header-actions">
+        <a href="operator-login.html" class="btn btn-outline btn-sm" style="background: #1e293b; color: #ffffff; border-color: #475569;">Sign Out</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="dashboard-layout">
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-operator-info">
+        <div class="operator-title">KSRTC Airavat & Club Class</div>
+        <span class="operator-badge operator-badge-govt">Government State STU</span>
+      </div>
+      <ul class="sidebar-nav">
+        <li><a href="operator-dashboard.html">📊 Overview</a></li>
+        <li><a href="buses.html">🚌 Fleet & Buses</a></li>
+        <li><a href="routes.html" class="active">🛣️ Transit Routes</a></li>
+        <li><a href="schedules.html">⏱️ Trip Schedules</a></li>
+        <li><a href="bookings.html">🎟️ Booking Manifests</a></li>
+      </ul>
+    </aside>
+
+    <main class="dashboard-content">
+      <div class="dash-header">
+        <div class="dash-title">
+          <h1>Route & Corridor Management</h1>
+          <p>Define origins, destinations, distance metrics, and authorized passenger boarding points.</p>
+        </div>
+        <button onclick="alert('Demo: Route creation wizard opened.');" class="btn btn-primary btn-sm">+ Add New Route</button>
+      </div>
+
+      <div class="table-card">
+        <div class="table-header-bar">
+          <h3 class="table-title">Permitted Routes</h3>
+          <input type="text" id="tableSearchInput" placeholder="Filter routes..." style="padding: 6px 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; outline: none;">
+        </div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Route ID</th>
+              <th>Origin → Destination</th>
+              <th>Distance</th>
+              <th>Est. Duration</th>
+              <th>Boarding Stops</th>
+              <th>Dropping Stops</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="tabular font-bold">RT-BLR-MYS</td>
+              <td><strong>Bengaluru → Mysuru</strong></td>
+              <td class="tabular">145 KM</td>
+              <td>3h 15m</td>
+              <td>Majestic, Shantinagar, Kengeri</td>
+              <td>Columbia Asia, Central Stand</td>
+              <td>
+                <button onclick="alert('Demo: Editing boarding points for Bengaluru-Mysuru.');" class="btn btn-outline btn-sm" style="padding: 4px 8px; font-size: 12px;">Stops</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="tabular font-bold">RT-BLR-HYD</td>
+              <td><strong>Bengaluru → Hyderabad</strong></td>
+              <td class="tabular">570 KM</td>
+              <td>8h 45m</td>
+              <td>Majestic, Hebbal Flyover</td>
+              <td>Shamshabad, MGBS Central</td>
+              <td>
+                <button onclick="alert('Demo: Editing boarding points for Bengaluru-Hyderabad.');" class="btn btn-outline btn-sm" style="padding: 4px 8px; font-size: 12px;">Stops</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+/* GoBus Responsive Media Queries - responsive.css */
+
+@media (max-width: 1024px) {
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .search-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .dashboard-content {
+    padding: 24px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    height: 64px;
+    gap: 16px;
+  }
+
+  .nav-links {
+    display: none; /* Mobile menu can toggle */
+  }
+
+  .hero-section {
+    padding: 50px 0 60px;
+  }
+
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .search-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .dashboard-layout {
+    flex-direction: column;
+  }
+
+  .dashboard-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #1e293b;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ticket-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-card {
+    padding: 28px 20px;
+  }
+}
